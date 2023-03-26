@@ -63,4 +63,12 @@ class HomeController extends Controller
     {
         //
     }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function login()
+    {
+        return redirect()->route('home');
+    }
 }

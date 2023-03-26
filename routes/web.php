@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('login', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('login', [\App\Http\Controllers\HomeController::class, 'login']);
 Route::resource('repositories', \App\Http\Controllers\RepositoryController::class);
 Route::resource('tags', \App\Http\Controllers\TagController::class);
 Route::resource('gallery', \App\Http\Controllers\GalleryController::class);
