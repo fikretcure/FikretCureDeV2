@@ -117,7 +117,7 @@
                    aria-expanded="false">
                     <div class="avatar-container">
                         <div class="avatar avatar-sm avatar-indicators avatar-online">
-                            <img alt="avatar" src="../src/assets/img/profile-30.png" class="rounded-circle">
+                            <img alt="avatar" src="../src/assets/img/favicon.ico?v=1" class="rounded-circle">
                         </div>
                     </div>
                 </a>
