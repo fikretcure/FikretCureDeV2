@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStatisticsRequest;
 use App\Http\Requests\UpdateStatisticsRequest;
+use App\Models\StatisticDetail;
 use App\Models\Statistics;
 
 class StatisticsController extends Controller
@@ -13,7 +14,11 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        return view('statistics');
+        return view('statistics',[
+            'daily' => StatisticDetail::whereType('daily')->get(),
+            'month' => StatisticDetail::whereType('month')->get(),
+            'count' => Statistics::query()->count(),
+        ]);
     }
 
     /**
