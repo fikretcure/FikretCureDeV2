@@ -13,8 +13,11 @@ class StatisticMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (env('APP_ENV') == "production") {
-            $location = collect(Location::get($request->ip()));
-            Statistics::create($location->toArray());
+            $statistic = Statistics::latest('id')->where('ip', $request->ip())->first('created_at');
+            if (!$statistic || now()->greaterThanOrEqualTo($statistic->created_at->addMinutes(2))) {
+                $location = collect(Location::get($request->ip()));
+                Statistics::create($location->toArray());
+            }
         }
         return $next($request);
     }
