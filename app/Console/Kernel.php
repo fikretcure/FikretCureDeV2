@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Models\StatisticDetail;
+use App\Models\Statistics;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +15,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            $count = Statistics::whereDate('created_at', now()->yesterday())->count();
+            StatisticDetail::create([
+                'type' => 'daily',
+                'history' => now()->yesterday(),
+                'count' => $count
+            ]);
+        })->daily();
+
+        $schedule->call(function () {
+            $count = Statistics::whereYear('created_at', Carbon::now()->format('Y'))->whereMonth('created_at', Carbon::now()->format('m'))->count();
+            StatisticDetail::create([
+                'type' => 'month',
+                'history' => now(),
+                'count' => $count
+            ]);
+        })->lastDayOfMonth();
     }
 
     /**
@@ -20,7 +39,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
