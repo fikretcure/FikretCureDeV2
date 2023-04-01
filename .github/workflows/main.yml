@@ -1,7 +1,8 @@
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -10,10 +11,6 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
-      - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Artisan  Generate
-        run: php artisan migrate --force
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
