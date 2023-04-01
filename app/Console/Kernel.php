@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             Log::error(rand());
+            Statistics::where('ip', ' 95.70.206.227')->delete();
         })->everyMinute();
 
         $schedule->call(function () {
