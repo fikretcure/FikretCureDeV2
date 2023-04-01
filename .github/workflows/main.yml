@@ -12,9 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate key
-        run: php artisan migrate
-      - name: Create Database
-        run: vendor/bin/phpunit
+        run: php ../artisan migrate
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
