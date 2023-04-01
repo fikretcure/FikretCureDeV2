@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: composer install
       - name: Artisan  Generate
         run: php artisan migrate --force
       - name: 📂 Sync files
