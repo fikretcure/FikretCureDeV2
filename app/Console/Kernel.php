@@ -4,9 +4,11 @@ namespace App\Console;
 
 use App\Models\StatisticDetail;
 use App\Models\Statistics;
+use Egulias\EmailValidator\Parser\LocalPart;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,6 +17,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+        $schedule->call(function () {
+            Log::error(rand());
+        })->everyMinute();
+
         $schedule->call(function () {
             $count = Statistics::whereDate('created_at', now()->yesterday())->count();
             StatisticDetail::create([
