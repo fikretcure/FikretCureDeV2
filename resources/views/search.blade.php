@@ -42,20 +42,28 @@
                 </div>
             </div>
             <!--  END BREADCRUMBS  -->
-
-                    <div class="card style-5 bg-secondary mb-4">
-                        <div class="card-top-content">
-                            <div class="avatar avatar-md">
-                                <img alt="avatar" src="assets/img/profile-6.jpeg" class="rounded-circle">
+            <div class="row layout-top-spacing">
+                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    @foreach ($repositories as $item)
+                        <div class="card style-5 bg-gradient-secondary mb-4">
+                            <div class="card-top-content">
+                                <div class="avatar avatar-md">
+                                    <img alt="avatar"
+                                         src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png"
+                                         class="rounded-circle">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">{{$item->name}}</h5>
+                                    <a href="https://github.com/fikretcure/{{$item->name}}"
+                                       class="text-warning mt-2 d-inline-block">Go To Repo</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <h5 class="card-title mb-2">Mary McDonald</h5>
-                                <a href="javascript:void(0);" class="text-warning mt-2 d-inline-block">Follow</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
+            </div>
 
         </div>
     </div>
