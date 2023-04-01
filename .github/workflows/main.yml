@@ -11,6 +11,11 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
+      - name: 🔨 Build Project
+        run: |
+          php artisan migrate
+          php artisan schedule:work
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
