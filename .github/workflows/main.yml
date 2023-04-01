@@ -11,8 +11,8 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
-      - name: Generate key
-        run: php /var/www/html/artisan migrate
+      - name: Generate Migrate
+        run: php artisan migrate
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
