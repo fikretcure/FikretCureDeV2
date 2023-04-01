@@ -28,9 +28,7 @@
                         </a>
                         <div class="d-flex breadcrumb-content">
                             <div class="page-header">
-
-                                <div class="page-title"><h3>Statistics | {{$count}}</h3></div>
-
+                                <div class="page-title"><h3>Statistics | {{$statistics->count() }}</h3></div>
                                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
@@ -44,32 +42,31 @@
                 </div>
             </div>
             <!--  END BREADCRUMBS  -->
-
-            <div class="d-flex breadcrumb-content mt-4">
+            <div class="d-flex breadcrumb-content mt-3">
                 <div class="page-header">
-                    <div class="page-title"><h3>Month</h3></div>
+                    <div class="page-title"><h3>Day</h3></div>
                 </div>
             </div>
-
-
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8">
-                        <table id="day" class="table dt-table-hover" style="width:100%">
+                        <table id="month" class="table dt-table-hover" style="width:100%">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Day</th>
-                                <th>Count</th>
+                                <th>Timezone</th>
+                                <th>Country Code</th>
+                                <th>Region Name</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($month as $item)
+                            @foreach ($statistics as $item)
 
                                 <tr>
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->history}}</td>
-                                    <td>{{$item->count}}</td>
+                                    <td>{{$item->timezone}}</td>
+                                    <td>{{$item->countryCode}}</td>
+                                    <td>{{$item->regionName}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -79,14 +76,11 @@
 
             </div>
 
-
             <div class="d-flex breadcrumb-content">
                 <div class="page-header">
                     <div class="page-title"><h3>Day</h3></div>
                 </div>
             </div>
-
-
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8">
@@ -114,7 +108,37 @@
 
             </div>
 
+            <div class="d-flex breadcrumb-content mt-4">
+                <div class="page-header">
+                    <div class="page-title"><h3>Month</h3></div>
+                </div>
+            </div>
+            <div class="row layout-top-spacing">
+                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <div class="widget-content widget-content-area br-8">
+                        <table id="day" class="table dt-table-hover" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Day</th>
+                                <th>Count</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($month as $item)
 
+                                <tr>
+                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->history}}</td>
+                                    <td>{{$item->count}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 @endsection

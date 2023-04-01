@@ -17,7 +17,7 @@ class StatisticsController extends Controller
         return view('statistics',[
             'daily' => StatisticDetail::whereType('daily')->get(),
             'month' => StatisticDetail::whereType('month')->get(),
-            'count' => Statistics::query()->count(),
+            'statistics' => Statistics::latest('id')->get(),
         ]);
     }
 

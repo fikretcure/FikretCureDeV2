@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +21,6 @@ Route::resource('tags', \App\Http\Controllers\TagController::class);
 Route::resource('gallery', \App\Http\Controllers\GalleryController::class);
 Route::resource('contact', \App\Http\Controllers\ContactController::class);
 Route::resource('statistics', \App\Http\Controllers\StatisticsController::class);
+Route::get('search', \App\Http\Controllers\SearchController::class)->name('search');
 
 
