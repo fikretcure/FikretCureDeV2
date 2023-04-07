@@ -56,7 +56,6 @@
                                 <th>Id</th>
                                 <th>Timezone</th>
                                 <th>Country Code</th>
-                                <th>Region Name</th>
                                 <th>City Name</th>
                                 <th>Diff</th>
                                 <th>Date</th>
@@ -68,8 +67,7 @@
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->timezone}}</td>
-                                    <td>{{$item->countryCode}}</td>
-                                    <td>{{$item->regionName}}</td>
+                                    <td>{{$item->countryCode}} - {{$item->regionName}}</td>
                                     <td>{{$item->cityName}}</td>
                                     <td>
                                         {{ $item->created_at->diffForHumans([
