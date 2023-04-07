@@ -57,6 +57,9 @@
                                 <th>Timezone</th>
                                 <th>Country Code</th>
                                 <th>Region Name</th>
+                                <th>City Name</th>
+                                <th>Diff</th>
+                                <th>Date</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -67,6 +70,14 @@
                                     <td>{{$item->timezone}}</td>
                                     <td>{{$item->countryCode}}</td>
                                     <td>{{$item->regionName}}</td>
+                                    <td>{{$item->cityName}}</td>
+                                    <td>
+                                        {{ $item->created_at->diffForHumans([
+                                                'parts' => 3,
+                                                'join' => ' , ',
+]                                       )}}
+                                    </td>
+                                    <td>{{$item->created_at}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
