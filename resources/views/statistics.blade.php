@@ -162,7 +162,15 @@
             },
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 10
+            "pageLength": 10,
+            "order": [[0, 'desc']],
+            "columnDefs": [{
+                "render": function render(data, type, full, meta) {
+                    return meta.row + 1;
+                },
+                "targets": 0
+            },
+            ],
         });
 
         $('#month').DataTable({
