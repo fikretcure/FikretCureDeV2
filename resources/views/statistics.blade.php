@@ -63,7 +63,6 @@
                             </thead>
                             <tbody>
                             @foreach ($statistics as $item)
-
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->timezone}}</td>
