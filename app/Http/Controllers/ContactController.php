@@ -33,7 +33,7 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        Mail::to([$request->inputEmail,'fikretcure@gmail.com'])->send(new MesShipped($request->validated()));
+        Mail::to([$request->inputEmail,'fikretcure@yandex.com.tr'])->send(new MesShipped($request->validated()));
         return redirect()->route('home');
     }
 
