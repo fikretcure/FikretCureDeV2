@@ -17,10 +17,10 @@ class StatisticsController extends Controller
         return view('statistics', [
             'daily' => StatisticDetail::whereType('daily')->get(),
             'month' => StatisticDetail::whereType('month')->get(),
-            'statistics' => Statistics::orderBy('id','desc')->limit(1000)->get(),
+            'statistics' => Statistics::orderBy('id', 'desc')->limit(500)->get(),
             'statistics_count' => Statistics::count(),
         ]);
-     }
+    }
 
     /**
      * Show the form for creating a new resource.
