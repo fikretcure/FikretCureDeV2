@@ -44,7 +44,7 @@
             <!--  END BREADCRUMBS  -->
             <div class="d-flex breadcrumb-content mt-3">
                 <div class="page-header">
-                    <div class="page-title"><h3>Momentary</h3></div>
+                    <div class="page-title"><h3>Momentary | 1000</h3></div>
                 </div>
             </div>
             <div class="row layout-top-spacing">
