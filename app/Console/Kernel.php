@@ -18,11 +18,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
-            Log::error(rand());
-            Statistics::whereIn('ip', ['95.70.206.227', '37.154.187.2'])->delete();
-        })->everyMinute();
-
-        $schedule->call(function () {
             $count = Statistics::whereDate('created_at', now()->yesterday())->count();
             StatisticDetail::create([
                 'type' => 'daily',
@@ -38,6 +33,7 @@ class Kernel extends ConsoleKernel
                 'history' => now(),
                 'count' => $count
             ]);
+            info(now()->toDateString());
         })->lastDayOfMonth();
     }
 
