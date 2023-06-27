@@ -28,7 +28,7 @@
                         </a>
                         <div class="d-flex breadcrumb-content">
                             <div class="page-header">
-                                <div class="page-title"><h3>Statistics | {{$statistics->count() }}</h3></div>
+                                <div class="page-title"><h3>Statistics | {{$statistics_count}}</h3></div>
                                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
@@ -65,7 +65,7 @@
                             @foreach ($statistics as $item)
                                 <tr>
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->timezone}}</td>
+                                    <td>{{$item->id}}</td>
                                     <td>{{$item->countryCode}} - {{$item->regionName}}</td>
                                     <td>{{$item->cityName}}</td>
                                     <td>
@@ -225,7 +225,7 @@
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
             "pageLength": 10,
-            "order": [[0, 'desc']],
+            "order": [[0, 'asc']],
             "columnDefs": [{
                 "render": function render(data, type, full, meta) {
                     return meta.row + 1;

@@ -14,14 +14,13 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-
-
-        return view('statistics',[
+        return view('statistics', [
             'daily' => StatisticDetail::whereType('daily')->get(),
             'month' => StatisticDetail::whereType('month')->get(),
-            'statistics' => Statistics::oldest('id')->get(),
+            'statistics' => Statistics::orderBy('id','desc')->limit(1000)->get(),
+            'statistics_count' => Statistics::count(),
         ]);
-    }
+     }
 
     /**
      * Show the form for creating a new resource.
