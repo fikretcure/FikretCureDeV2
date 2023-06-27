@@ -28,7 +28,7 @@
                         </a>
                         <div class="d-flex breadcrumb-content">
                             <div class="page-header">
-                                <div class="page-title"><h3>Statistics | {{$statistics_count}}</h3></div>
+                                <div class="page-title"><h3>Statistics | {{$statistics_count}} Records</h3></div>
                                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
@@ -44,7 +44,7 @@
             <!--  END BREADCRUMBS  -->
             <div class="d-flex breadcrumb-content mt-3">
                 <div class="page-header">
-                    <div class="page-title"><h3>Momentary | 1000 Row</h3></div>
+                    <div class="page-title"><h3>Momentary | Last 1000 Records</h3></div>
                 </div>
             </div>
             <div class="row layout-top-spacing">
