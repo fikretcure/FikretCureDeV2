@@ -13,11 +13,7 @@ class RepositoryController extends Controller
      */
     public function index()
     {
-
-       $repositories = Repository::orderByDesc('id')->with("tagItem.tag")->get();
-
-       //return $repositories;
-
+        $repositories = Repository::orderByDesc('id')->with("tagItem.tag")->get();
         return view('repository', ['repositories' => $repositories]);
     }
 
