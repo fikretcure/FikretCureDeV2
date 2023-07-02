@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRepositoryRequest;
 use App\Http\Requests\UpdateRepositoryRequest;
 use App\Models\Repository;
+use Illuminate\Support\Collection;
 
 class RepositoryController extends Controller
 {
@@ -13,8 +14,7 @@ class RepositoryController extends Controller
      */
     public function index()
     {
-        $repositories = Repository::orderByDesc('id')->with("tagItem.tag")->get();
-        return view('repository', ['repositories' => $repositories]);
+        return view('repository', ['repositories' => $this->shuffleRepository()]);
     }
 
     /**
@@ -63,5 +63,14 @@ class RepositoryController extends Controller
     public function destroy(Repository $repository)
     {
         //
+    }
+
+    /**
+     * @return Collection
+     */
+    public function shuffleRepository()
+    {
+        $repositories = Repository::with("tagItem.tag")->get();
+        return collect($repositories)->shuffle();
     }
 }
