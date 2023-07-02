@@ -65,7 +65,7 @@
                             @foreach ($statistics as $item)
                                 <tr>
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->timezone}}</td>
                                     <td>{{$item->countryCode}} - {{$item->regionName}}</td>
                                     <td>{{$item->cityName}}</td>
                                     <td>
