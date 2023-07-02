@@ -14,7 +14,7 @@ class RepositoryController extends Controller
     public function index()
     {
 
-       $repositories = Repository::orderBy('id','desc')->with("tagItem.tag")->get();
+       $repositories = Repository::with("tagItem.tag")->get();
 
        //return $repositories;
 
