@@ -14,7 +14,7 @@ class RepositoryController extends Controller
     public function index()
     {
 
-       $repositories = Repository:: with("tagItem.tag")->get();
+       $repositories = Repository::latest('id')->with("tagItem.tag")->get();
 
        //return $repositories;
 
