@@ -12,7 +12,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $repositories = Repository:: with("tagItem.tag")->get();
+        $repositories = Repository::orderByDesc('id')->with("tagItem.tag")->get();
         return view('home', ['repositories' => $repositories]);
     }
 
