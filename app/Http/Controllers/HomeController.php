@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Repository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,8 +11,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $repositories = Repository::orderByDesc('id')->with("tagItem.tag")->get();
-        return view('home', ['repositories' => $repositories]);
+        return view('home', ['repositories' => (new RepositoryController())->shuffleRepository()]);
     }
 
     /**
