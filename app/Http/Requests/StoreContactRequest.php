@@ -27,7 +27,7 @@ class StoreContactRequest extends FormRequest
             ],
             "inputEmail" => [
                 "required",
-                "email:rfc,dns"
+                "email:rfc,dns,strict,spoof"
             ],
             "inputSubject" => [
                 "required",
