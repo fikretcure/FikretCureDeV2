@@ -22,7 +22,7 @@
                         <div class="d-flex breadcrumb-content">
                             <div class="page-header">
 
-                                <div class="page-title"><h3>Galery</h3></div>
+                                <div class="page-title"><h3>Gallery</h3></div>
 
                                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
