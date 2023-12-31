@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
 use App\Models\Gallery;
-use App\Models\Repository;
+use App\Models\Video;
 
 class GalleryController extends Controller
 {
@@ -14,12 +14,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Repository::with('tagItem.tag')->with('gallery.tagItem.tag')->get();
-
-        $not_repo = Gallery::whereNull('repository_id')->get();
         return view('gallery', [
-            'galleries' => $galleries,
-            'not_repo' => $not_repo,
+            'videos' => Video::all(),
         ]);
     }
 

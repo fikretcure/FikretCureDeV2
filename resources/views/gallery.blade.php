@@ -43,17 +43,15 @@
             </div>
             <!--  END BREADCRUMBS  -->
             <div class="row layout-top-spacing">
-                @foreach ($galleries as $item_repo)
-                    @foreach ($item_repo->gallery as $item)
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 layout-spacing">
-                            <a class="card style-7 iframeGlightbox glightbox-content" href="{{$item->url}}">
-                                <img src=" {{asset('src/assets/img/back_2.png')}}" class="card-img-top" alt="...">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-0">{{$item_repo->name}} <br> {{$item->name}}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+                @foreach ($videos as $item)
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 layout-spacing">
+                        <a class="card style-7" href="https://www.youtube.com/watch?v={{$item->url}}" target="_blank">
+                            <img src=" {{asset('src/assets/video/video.png')}}" class="card-img-top" alt="...">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0" style="color: #02524f">{{$item->name}}</h5>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
 
             </div>
