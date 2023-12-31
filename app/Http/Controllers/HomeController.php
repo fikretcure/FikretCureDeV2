@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['repositories' => (new RepositoryController())->shuffleRepository()]);
+        return view('home', [
+            'repositories' => (new RepositoryController())->shuffleRepository(),
+            'videos' => Video::all()
+        ]);
     }
 
     /**
